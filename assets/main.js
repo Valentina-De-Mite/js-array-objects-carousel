@@ -16,23 +16,37 @@ E se volessi un bottone per invertire la "direzione" del carosello?
 
 let imagesArray = [
   {
-    image: "cat_01",
+    photo: "cat_01.jpg",
   },
 
   {
-    image: "cat_02",
+    photo: "cat_02.jpg",
   },
   {
-    image: "cat_03",
+    photo: "cat_03.jpg",
   },
   {
-    image: "cat_04",
+    photo: "cat_04.jpg",
   },
   {
-    image: "cat_05",
+    photo: "cat_05.jpg",
   },
 ];
 
-console.log(imagesArray);
+// console.log(imagesArray);
 
-let activeSlide = 0;
+// seleziono gli elementi della DOM
+const imagesEl = document.querySelector(".sliders");
+const prevEl = document.querySelector(".prev");
+const nextEl = document.querySelector(".next");
+
+// effettuo un loop dell'array
+imagesArray.forEach((element) => {
+  console.log(element.photo);
+
+  const markup = `<div class="card">
+  <img src="./assets/img/${element.photo}" alt="" srcset=""> 
+  </div>`;
+
+  document.getElementById("markup").insertAdjacentHTML("beforeend", markup);
+});
