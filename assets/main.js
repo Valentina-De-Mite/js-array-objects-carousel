@@ -11,3 +11,28 @@ al click di un bottone o già dall'inizio possiamo far partire, ad intervalli di
 Bonus 2:
 E se volessi un bottone per invertire la "direzione" del carosello?
 */
+
+// imposto un array di oggetti
+
+let imagesArray = [
+  {
+    image: "cat_01",
+  },
+
+  {
+    image: "cat_02",
+  },
+  {
+    image: "cat_03",
+  },
+  {
+    image: "cat_04",
+  },
+  {
+    image: "cat_05",
+  },
+];
+
+console.log(imagesArray);
+
+let activeSlide = 0;
