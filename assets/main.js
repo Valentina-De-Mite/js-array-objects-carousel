@@ -44,7 +44,7 @@ const nextEl = document.querySelector(".next");
 imagesArray.forEach((element) => {
   console.log(element.photo);
 
-  const markup = `<div class="card">
+  const markup = `<div class="card class="photo"">
   <img src="./assets/img/${element.photo}" alt="" srcset=""> 
   </div>`;
 
