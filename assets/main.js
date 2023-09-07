@@ -39,19 +39,48 @@ let imagesArray = [
 const imagesEl = document.querySelector(".sliders");
 const prevEl = document.querySelector(".prev");
 const nextEl = document.querySelector(".next");
-
+let activeSlides = 0;
 // effettuo un loop dell'array
 imagesArray.forEach((element) => {
   console.log(element.photo);
 
-  const markup = `
-  <img src="./assets/img/${element.photo}" alt="" srcset=""> 
-  `;
+  const markup = `<img class="rounded shadow" src="./assets/img/${element.photo}" alt="" srcset="">`;
 
   document.getElementById("markup").insertAdjacentHTML("beforeend", markup);
+  // creo la costante activeSlide
+
+  imagesEl.firstElementChild.classList.add("active");
+  // aggiungo l'eventListener sul click
 });
-imagesEl.firstElementChild.classList.add("active");
 
-// creo la costante activeSlide
+nextEl.addEventListener("click", function () {
+  let activeEl = imagesEl.childNodes[activeSlides];
+  console.log(imagesEl.childNodes);
+  activeEl.classList.remove("active");
+  // faccio progredire le slides e metto un controllo
+  if (activeSlides === imagesArray.length - 1) {
+    activeSlides = 0;
+  } else {
+    activeSlides += 1;
+  }
+  console.log(activeSlides);
+  let newActiveEl = imagesEl.childNodes[activeSlides];
+  newActiveEl.classList.add("active");
+  console.log(newActiveEl);
+});
 
-// aggiungo l'eventListener sul click
+prevEl.addEventListener("click", function () {
+  let activeEl = imagesEl.childNodes[activeSlides];
+  console.log(imagesEl.childNodes);
+  activeEl.classList.remove("active");
+  // faccio progredire le slides e metto un controllo
+  if (activeSlides === 0) {
+    activeSlides = imagesArray.length - 1;
+  } else {
+    activeSlides -= 1;
+  }
+  console.log(activeSlides);
+  let newActiveEl = imagesEl.childNodes[activeSlides];
+  newActiveEl.classList.add("active");
+  console.log(newActiveEl);
+});
