@@ -44,9 +44,14 @@ const nextEl = document.querySelector(".next");
 imagesArray.forEach((element) => {
   console.log(element.photo);
 
-  const markup = `<div class="card class="photo"">
+  const markup = `
   <img src="./assets/img/${element.photo}" alt="" srcset=""> 
-  </div>`;
+  `;
 
   document.getElementById("markup").insertAdjacentHTML("beforeend", markup);
 });
+imagesEl.firstElementChild.classList.add("active");
+
+// creo la costante activeSlide
+
+// aggiungo l'eventListener sul click
